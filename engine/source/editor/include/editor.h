@@ -5,20 +5,20 @@
 
 #include <memory>
 
-namespace Pilot
-{
+namespace Pilot {
     class EditorUI;
+
     class PilotEngine;
 
-    class PilotEditor : public PublicSingleton<PilotEditor>
-    {
+    class PilotEditor : public PublicSingleton<PilotEditor> {
         friend class EditorUI;
         friend class PublicSingleton<PilotEditor>;
 
     public:
         virtual ~PilotEditor();
 
-        void initialize(PilotEngine* engine_runtime);
+        void initialize(PilotEngine *engine_runtime);
+
         void clear();
 
         void run();
@@ -31,6 +31,6 @@ namespace Pilot
         size_t getGuidOfPickedMesh(const Vector2& picked_uv) const;
 
         std::shared_ptr<EditorUI> m_editor_ui;
-        PilotEngine*              m_engine_runtime {nullptr};
+        PilotEngine *m_engine_runtime{nullptr};
     };
 } // namespace Pilot

@@ -2,6 +2,7 @@
 
 namespace Pilot
 {
+    // 静态常量的初始化，调用的应该是这个类的构造函数
     const Vector3 Vector3::ZERO(0, 0, 0);
     const Vector3 Vector3::UNIT_X(1, 0, 0);
     const Vector3 Vector3::UNIT_Y(0, 1, 0);
