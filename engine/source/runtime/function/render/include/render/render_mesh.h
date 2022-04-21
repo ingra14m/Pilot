@@ -1,6 +1,6 @@
 #pragma once
 
-#include "runtime/core/math/bounding_box.h"
+#include "runtime/core/math/axis_aligned.h"
 #include "runtime/core/math/matrix4.h"
 
 #include "render/resource_handle.h"
@@ -10,10 +10,10 @@
 namespace Pilot {
     struct MeshHandle {
         VertexBufferHandle m_vertex_handle;
-        IndexBufferHandle m_index_handle;
-        BoundingBox m_bounding_box;
-
-        bool operator==(const MeshHandle &rhs) const {
+        IndexBufferHandle  m_index_handle;
+        AxisAlignedBox     m_bounding_box;
+        bool               operator==(const MeshHandle& rhs) const
+        {
             return m_vertex_handle == rhs.m_vertex_handle && m_index_handle == rhs.m_index_handle;
         }
 
@@ -22,9 +22,9 @@ namespace Pilot {
 
     struct SkeletonMeshBinding {
         SkeletonBindingBufferHandle m_skeleton_binding_handle;
-        BoundingBox m_bounding_box;
-
-        bool operator==(const SkeletonMeshBinding &rhs) const {
+        AxisAlignedBox              m_bounding_box;
+        bool                        operator==(const SkeletonMeshBinding& rhs) const
+        {
             return m_skeleton_binding_handle == rhs.m_skeleton_binding_handle;
         }
 
@@ -52,8 +52,8 @@ namespace Pilot {
         bool m_enable_vertex_blending_1 = false;
 
         // --- per asset members ---
-        BoundingBox m_bounding_box;
-        size_t m_guid = PILOT_INVALID_GUID;
+        AxisAlignedBox m_bounding_box;
+        size_t         m_guid = PILOT_INVALID_GUID;
         // index into materials vector
         int m_material = 0;
         // vertices and indices

@@ -18,7 +18,7 @@ namespace Pilot
 {
     bool g_is_editor_mode {true};
 
-    const FrameBuffer* getFrameBuffer(ThreeFrameBuffers* t, const PilotRenderer* r)
+    const FrameBuffer* getFrameBuffer(ThreeFrameBuffers* t, const PilotRenderer*)
     {
         return (t->consumingBufferShift());
     }
@@ -105,7 +105,7 @@ namespace Pilot
         }
     }
 
-    void PilotEngine::logicalTick(const float delta_time)
+    void PilotEngine::logicalTick(float delta_time)
     {
         m_tri_frame_buffer.producingBufferShift();
         PublicSingleton<WorldManager>::getInstance().tick(delta_time);

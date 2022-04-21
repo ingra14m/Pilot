@@ -16,8 +16,7 @@ namespace Pilot
         friend class PublicSingleton<WorldManager>;
 
     public:
-        WorldManager() {}
-        ~WorldManager();
+        virtual ~WorldManager();
 
         WorldManager(const WorldManager&) = delete;
         WorldManager& operator=(const WorldManager&) = delete;
@@ -28,8 +27,11 @@ namespace Pilot
         void reloadCurrentLevel();
         void saveCurrentLevel();
 
-        void   tick(const float delta_time);
+        void   tick(float delta_time);
         Level* getCurrentActiveLevel() const { return m_current_active_level; }
+
+    protected:
+        WorldManager() = default;
 
     private:
         void processPendingLoadWorld();

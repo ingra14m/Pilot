@@ -51,21 +51,21 @@ namespace Pilot
     {
         friend class PublicSingleton<PilotEngine>;
 
-        PilotEngine(const PilotEngine&) = delete;
-        PilotEngine& operator=(const PilotEngine&) = delete;
-
     protected:
+        PilotEngine();
+
         bool                                  m_is_quit {false};
         std::chrono::steady_clock::time_point m_last_tick_time_point {std::chrono::steady_clock::now()};
 
         ThreeFrameBuffers              m_tri_frame_buffer;
         std::shared_ptr<PilotRenderer> m_renderer;
 
-        void logicalTick(const float delta_time);
+        void logicalTick(float delta_time);
         bool rendererTick();
 
     public:
-        PilotEngine();
+        PilotEngine(const PilotEngine&) = delete;
+        PilotEngine& operator=(const PilotEngine&) = delete;
 
         void startEngine(const EngineInitParams& param);
         void shutdownEngine();

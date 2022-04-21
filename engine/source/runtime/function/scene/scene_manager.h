@@ -35,7 +35,7 @@ namespace Pilot
 
         std::shared_ptr<Scene> getCurrentScene() const { return m_scene; }
 
-        void        addSceneObject(const GameObjectDesc&& go_desc);
+        void        addSceneObject(const GameObjectDesc& go_desc);
         void        syncSceneObjects();
         void        addReleaseMeshHandle(const MeshHandle& mesh_handle);
         void        addReleaseMaterialHandle(const PMaterialHandle& material_handle);
@@ -43,14 +43,14 @@ namespace Pilot
         ComponentId getSelectedComponentByNodeId(size_t node_id);
         bool getTransformDescByComponentId(const ComponentId& component_id, GameObjectTransformDesc& out_transform);
         void setMainViewMatrix(const Matrix4x4& view_matrix, PCurrentCameraType type = PCurrentCameraType::Editor);
-        void setFOV(const float fovx);
+        void setFOV(float fovx);
         void setWindowSize(const Vector2& size) { m_window_size = size; }
         const Vector2& getWindowSize() const { return m_window_size; }
         const Vector2  getFOV() const;
 
         // for EditorUI
         void         setAxisMesh(std::vector<RenderMesh>& axis_meshes);
-        const size_t getGObjectIDByMeshID(const size_t mesh_id) const;
+        const size_t getGObjectIDByMeshID(size_t mesh_id) const;
 
     private:
         std::vector<GameObjectDesc> m_go_descs;
@@ -97,7 +97,7 @@ namespace Pilot
         void          getOrCreateSkeletonBindingHandle(const std::string&           skeleton_binding_file,
                                                        VertexBufferHandle&          vertex_handle,
                                                        IndexBufferHandle&           index_handle,
-                                                       BoundingBox&                 bounding_box,
+                                                       AxisAlignedBox&              bounding_box,
                                                        SkeletonBindingBufferHandle& skeleton_binding_handle);
 
         void releaseMeshHandles();
