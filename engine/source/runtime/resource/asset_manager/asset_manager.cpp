@@ -6,6 +6,7 @@
 #include "runtime/resource/res_type/components/animation.h"
 #include "runtime/resource/res_type/components/mesh.h"
 
+// 所有的component都从这个路径引入
 #include "runtime/function/framework/component/animation/animation_component.h"
 #include "runtime/function/framework/component/camera/camera_component.h"
 #include "runtime/function/framework/component/mesh/mesh_component.h"

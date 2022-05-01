@@ -779,7 +779,7 @@ namespace Pilot
     }
     void SceneManager::setSceneOnce()
     {
-        if (m_scene && m_scene->m_loaded == false)
+        if (m_scene && !m_scene->m_loaded)
         {
             m_scene->m_brdfLUT_texture_handle =
                 SceneBuilder::loadTextureHDR(AssetManager::getInstance()

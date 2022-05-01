@@ -21,7 +21,7 @@ namespace Pilot
 
     protected:
         SceneManager()                             = default;
-        std::shared_ptr<Scene>             m_scene = std::make_shared<Scene>();
+        std::shared_ptr<Scene>             m_scene = std::make_shared<Scene>();  // 这个类定义在frameBuffer中
         std::unordered_map<size_t, size_t> m_mesh_id_gobejct_id_map;
 
     public:

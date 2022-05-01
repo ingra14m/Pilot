@@ -53,6 +53,7 @@ namespace Pilot
         WorldManager::getInstance().initialize();
         SceneManager::getInstance().initialize();
 
+        // 这里大概就是初始化三缓冲区，存了三份罢了，仿照UE4
         m_tri_frame_buffer.initialize();
         m_renderer->RegisterGetPtr(std::bind(&getFrameBuffer, &m_tri_frame_buffer, std::placeholders::_1));
         m_renderer->RegisterGetPtr(std::bind(&getMemoryFromHandle, std::placeholders::_1));
@@ -107,7 +108,7 @@ namespace Pilot
 
     void PilotEngine::logicalTick(float delta_time)
     {
-        m_tri_frame_buffer.producingBufferShift();
+        m_tri_frame_buffer.producingBufferShift();  // 生产者消费者Buffer的转换
         PublicSingleton<WorldManager>::getInstance().tick(delta_time);
         PublicSingleton<SceneManager>::getInstance().tick(m_tri_frame_buffer.getProducingBuffer());
         PublicSingleton<InputSystem>::getInstance().tick();

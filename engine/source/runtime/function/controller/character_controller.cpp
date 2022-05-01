@@ -12,6 +12,8 @@ namespace Pilot
     Vector3 CharacterController::move(const Vector3& current_position, const Vector3& displacement)
     {
         Vector3 desired_position = current_position + displacement;
+
+        // 下面的desired_position原本是current_position + displacement
         if (PhysicsSystem::getInstance().overlapByCapsule(desired_position, m_capsule))
         {
             desired_position = current_position;

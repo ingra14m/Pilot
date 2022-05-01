@@ -47,7 +47,7 @@ namespace Pilot
         std::string pending_load_world_path = m_pending_load_world_path.generic_string();
 
         WorldRes world_res;
-        AssetManager::getInstance().loadAsset(m_pending_load_world_path, world_res);
+        AssetManager::getInstance().loadAsset(m_pending_load_world_path, world_res);  // 就是通过json文件加载
         m_pending_load_world_path.clear();
         if (world_res.m_name == m_current_world_name)
             return;

@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     params.m_config_file_path = pilot_root_folder / "PilotEditor.ini";
 
     /*
-     * 文件路径：
+     * PilotEditor最终的文件路径：
      * /Users/ingram14/Git_Project/GAMES104/Pilot/bin/asset
      * /Users/ingram14/Git_Project/GAMES104/Pilot/bin/schema  这个目前好像还没有加进来
      * /Users/ingram14/Git_Project/GAMES104/Pilot/bin/asset/world/hello.world.json
