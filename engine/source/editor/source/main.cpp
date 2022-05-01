@@ -28,19 +28,17 @@ int main(int argc, char **argv) {
      * /Users/ingram14/Git_Project/GAMES104/Pilot/bin/resource/PilotEditorFont.TTF
      *
      */
+    Pilot::PilotEngine::getInstance().startEngine(params);
+    Pilot::PilotEngine::getInstance().initialize();
 
-    Pilot::PublicSingleton<Pilot::PilotEngine>::getInstance().startEngine(params);
-    Pilot::PublicSingleton<Pilot::PilotEngine>::getInstance().initialize();
+    Pilot::PilotEditor::getInstance().initialize(&(Pilot::PilotEngine::getInstance()));
 
-    Pilot::PublicSingleton<Pilot::PilotEditor>::getInstance().initialize(
-            &(Pilot::PublicSingleton<Pilot::PilotEngine>::getInstance()));
+    Pilot::PilotEditor::getInstance().run();
 
-    Pilot::PublicSingleton<Pilot::PilotEditor>::getInstance().run();
+    Pilot::PilotEditor::getInstance().clear();
 
-    Pilot::PublicSingleton<Pilot::PilotEditor>::getInstance().clear();
-
-    Pilot::PublicSingleton<Pilot::PilotEngine>::getInstance().clear();
-    Pilot::PublicSingleton<Pilot::PilotEngine>::getInstance().shutdownEngine();
+    Pilot::PilotEngine::getInstance().clear();
+    Pilot::PilotEngine::getInstance().shutdownEngine();
 
     return 0;
 }

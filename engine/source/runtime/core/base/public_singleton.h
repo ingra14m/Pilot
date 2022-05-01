@@ -17,7 +17,7 @@ namespace Pilot
             static T instance;   // Type T is Pilot::PilotEngine， 是这个PublicSingleton的子类
             return instance;
         }
-        virtual ~PublicSingleton() noexcept = default;
+        virtual ~PublicSingleton() noexcept     = default;
         PublicSingleton(const PublicSingleton&) = delete;
         PublicSingleton& operator=(const PublicSingleton&) = delete;
     };
